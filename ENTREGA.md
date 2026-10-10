@@ -1,7 +1,7 @@
 # HikeFlora — entrega da Meta I
 
 Esta é uma versão inicial completa para o grupo rever e editar. O relatório
-tem **5 páginas**, dentro do limite de 10 páginas do enunciado. Os ficheiros
+tem **6 páginas**, dentro do limite de 10 páginas do enunciado. Os ficheiros
 editáveis são `entrega/relatorio_meta1.docx`, `entrega/apresentacao_meta1.pptx`
 e `entrega/anexo_prompts_ia.docx`; os PDFs correspondentes foram gerados a
 partir deles.
@@ -18,8 +18,8 @@ partir deles.
 - `resultados/` — históricos de treino e avaliação independente;
 - `LEIA_PRIMEIRO.md` — instruções de reprodução.
 
-O dataset extraído, `images.zip` e os modelos `.keras` não entram no Git nem
-no ZIP: são grandes e o enunciado pede relatório, código e slides. O manifesto
+O dataset extraído e `images.zip` não entram no Git. Os modelos `.keras` estão
+no Git para partilha entre o grupo, mas não entram no ZIP de submissão. O manifesto
 `selecao_imagens.csv` identifica exatamente as 11 000 fotografias usadas.
 Fonte: https://zenodo.org/records/10419064.
 
