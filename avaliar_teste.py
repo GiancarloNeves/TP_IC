@@ -4,7 +4,6 @@ from pathlib import Path
 
 import numpy as np
 import tensorflow as tf
-from sklearn.metrics import accuracy_score, confusion_matrix, f1_score, recall_score, roc_auc_score
 
 
 pasta = Path(__file__).parent
@@ -28,23 +27,38 @@ for nome_modelo in ("mlp", "cnn_dropout"):
     probabilidades = modelo.predict(teste, verbose=0)
     previstos = np.argmax(probabilidades, axis=1)
 
-    matriz = confusion_matrix(verdadeiros, previstos, labels=range(5))
-    recalls = recall_score(verdadeiros, previstos, labels=range(5), average=None, zero_division=0)
-    f1s = f1_score(verdadeiros, previstos, labels=range(5), average=None, zero_division=0)
+    matriz = np.zeros((5, 5), dtype=int)
+    for real, previsto in zip(verdadeiros, previstos):
+        matriz[real, previsto] += 1
+
+    recalls = []
     especificidades = []
+    f1s = []
     aucs = []
 
-    # Calcula especificidade e AUC para cada classe contra as outras quatro.
+    # Calcula as métricas para cada classe contra as outras quatro.
     for indice in range(5):
         vp = matriz[indice, indice]
         fn = matriz[indice, :].sum() - vp
         fp = matriz[:, indice].sum() - vp
         vn = matriz.sum() - vp - fn - fp
+        recall = vp / (vp + fn)
+        precisao = vp / (vp + fp) if vp + fp else 0
+        f1 = 2 * precisao * recall / (precisao + recall) if precisao + recall else 0
+        recalls.append(recall)
         especificidades.append(vn / (vn + fp))
-        aucs.append(roc_auc_score(verdadeiros == indice, probabilidades[:, indice]))
+        f1s.append(f1)
+
+        # AUC: fração de pares em que a imagem da classe recebe maior probabilidade.
+        positivos = probabilidades[verdadeiros == indice, indice]
+        negativos = probabilidades[verdadeiros != indice, indice]
+        aucs.append(
+            np.mean(positivos[:, None] > negativos)
+            + 0.5 * np.mean(positivos[:, None] == negativos)
+        )
 
     linhas.append(f"Modelo: {nome_modelo}")
-    linhas.append(f"Accuracy: {accuracy_score(verdadeiros, previstos):.4f}")
+    linhas.append(f"Accuracy: {np.mean(verdadeiros == previstos):.4f}")
     linhas.append(f"Recall macro: {np.mean(recalls):.4f}")
     linhas.append(f"Especificidade macro: {np.mean(especificidades):.4f}")
     linhas.append(f"F1 macro: {np.mean(f1s):.4f}")
