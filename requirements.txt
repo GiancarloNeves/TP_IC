@@ -1,0 +1,3 @@
+# Python 3.12 (ambiente utilizado nos treinos em Windows)
+tensorflow==2.21.0
+Pillow>=12.0

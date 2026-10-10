@@ -17,3 +17,7 @@ Thumbs.db
 
 # Modelos gerados pelo treino.
 modelos/
+
+# Ficheiros de bloqueio criados pelo Word/PowerPoint.
+~$*.docx
+~$*.pptx

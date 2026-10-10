@@ -1,5 +1,7 @@
 # HikeFlora — preparação do dataset da Meta 1
 
+> Registo da preparação do dataset na etapa 1. Para a entrega atual da Meta I, consultar [ENTREGA.md](ENTREGA.md).
+
 ## Objetivo
 
 Classificar uma fotografia de planta numa de cinco espécies e apresentar a espécie

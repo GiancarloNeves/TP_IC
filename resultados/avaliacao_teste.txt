@@ -1,0 +1,39 @@
+Modelo: mlp
+Accuracy: 0.4755
+Recall macro: 0.4755
+Especificidade macro: 0.8689
+F1 macro: 0.4528
+AUC macro (um contra os restantes): 0.8189
+Por classe: recall | especificidade | F1 | AUC
+Gerânio: 0.5045 | 0.9080 | 0.5388 | 0.7910
+Alfazema: 0.4727 | 0.9193 | 0.5266 | 0.8522
+Papoila: 0.4455 | 0.9682 | 0.5665 | 0.8455
+Trevo-branco: 0.8682 | 0.5784 | 0.4885 | 0.8318
+Morangueiro: 0.0864 | 0.9705 | 0.1434 | 0.7738
+Matriz de confusão: linhas reais, colunas previstas
+classe,Gerânio,Alfazema,Papoila,Trevo-branco,Morangueiro
+Gerânio,111,25,21,50,13
+Alfazema,11,104,1,101,3
+Papoila,52,12,98,55,3
+Trevo-branco,6,15,1,191,7
+Morangueiro,12,19,5,165,19
+
+Modelo: cnn_dropout
+Accuracy: 0.7400
+Recall macro: 0.7400
+Especificidade macro: 0.9350
+F1 macro: 0.7425
+AUC macro (um contra os restantes): 0.9349
+Por classe: recall | especificidade | F1 | AUC
+Gerânio: 0.6909 | 0.9477 | 0.7273 | 0.9299
+Alfazema: 0.8955 | 0.9534 | 0.8603 | 0.9808
+Papoila: 0.7409 | 0.9784 | 0.8109 | 0.9357
+Trevo-branco: 0.6227 | 0.9432 | 0.6732 | 0.9249
+Morangueiro: 0.7500 | 0.8523 | 0.6408 | 0.9032
+Matriz de confusão: linhas reais, colunas previstas
+classe,Gerânio,Alfazema,Papoila,Trevo-branco,Morangueiro
+Gerânio,152,10,11,2,45
+Alfazema,1,197,2,11,9
+Papoila,20,11,163,11,15
+Trevo-branco,6,16,0,137,61
+Morangueiro,19,4,6,26,165
