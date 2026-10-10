@@ -1,0 +1,16 @@
+# Imagens do dataset: ficam no computador, fora do Git.
+dataset/
+images.zip
+
+# Metadados completos da fonte, caso sejam descarregados novamente.
+plantnet300K_metadata.csv
+
+# Ficheiros temporários do Python.
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Ficheiros temporários do sistema.
+.DS_Store
+Thumbs.db
