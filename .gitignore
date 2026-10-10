@@ -15,8 +15,8 @@ venv/
 .DS_Store
 Thumbs.db
 
-# Modelos gerados pelo treino.
-modelos/
+# Cópias locais dos resultados.
+resultados_backup_*/
 
 # Ficheiros de bloqueio criados pelo Word/PowerPoint.
 ~$*.docx
